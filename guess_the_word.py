@@ -17,6 +17,17 @@ def choose_word():
 def check_guess(word, letter):
     return letter in word
 
+# Display the letters the player has guessed correctly
+def show_word(word, guessed_letters):
+    display = ""
+
+    for letter in word:
+        if letter in guessed_letters:
+            display += letter
+        else:
+            display += "_"
+
+    return display
 
 # Start the word guessing game
 def play_game():
@@ -27,14 +38,8 @@ def play_game():
     print("Welcome to Guess the Word!")
 
     while attempts > 0:
-        # Display correctly guessed letters
-        display = ""
-
-        for letter in word:
-            if letter in guessed_letters:
-                display += letter
-            else:
-                display += "_"
+                # Display correctly guessed letters
+        display = show_word(word, guessed_letters)
 
         print("\nWord:", display)
 
